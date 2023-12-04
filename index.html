@@ -182,8 +182,10 @@
           Detecting 3D keypoints with semantic consistency is widely used in many scenarios such as pose estimation, shape registration and robotics. 
           Currently, most unsupervised 3D keypoint detection methods focus on the rigid-body objects. 
           However, when faced with deformable objects, the keypoints they identify do not preserve semantic consistency well. 
+          <p>
           In this paper, we introduce an innovative unsupervised keypoint detector Key-Grid for both the rigid-body and deformable objects, which is an autoencoder framework. 
           Unlike previous work, we leverage the identified keypoint information to form a 3D grid feature heatmap called grid heatmap, which is used in the process of point cloud reconstruction. 
+          <p>
           Grid heatmap is a novel concept that represents the latent variables for grid points sampled uniformly in the 3D cubic space, where these variables are the shortest distance between the grid points and the “skeleton” connected by keypoint pairs. 
           Meanwhile, we incorporate the information from each layer of the encoder into the reconstruction process of the point cloud. We conduct an extensive evaluation of Key-Grid on a list of benchmark datasets. 
           Key-Grid achieves the state-of-the-art performance on the semantic consistency and position accuracy of keypoints. 
@@ -223,15 +225,13 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Overview</h2>
-          <img src="./static/images/overview.png" alt="Overview of EAT" />
+          <img src="./static/images/allmethod.png" alt="Pipline of Key-Grid" />
   
             <div class="content has-text-justified">
-              Overview of our EAT,
-              <strong>(a)</strong> The Audio-to-Expression Transformer (A2ET) transfers latent source image representation, 
-                source audio, and head pose sequences to 3D expression deformation.
-              <strong>(b)</strong> The emotional guidance is injected into A2ET, Emotional Deformation Network (EDN), and 
-                Emotional Adaptation Module (EAM) for emotional talking-head generation, presented in dashed lines.
-              <strong>(c)</strong> The RePos-Net takes the 3D source keypoints and driven keypoints to generate frames.
+              Pipline of Key-Grid,
+              In the encoder section, given a point cloud, we detect the keypoints by utilizing the PointNet++. 
+              Then, we utilize the detected keypoints to form the Key-Grid. 
+              In the decoder section, we use each layer of the PointNet++ and the Key-Grid to reconstruct the input point cloud. 
               <p>
                   Please refer to our paper for more details.
               </p>
@@ -239,7 +239,7 @@
   
         </div>
       </div>
-      <!--/ Abstract. -->
+      <!--/ Overview. -->
   
     </div>
   </section>
