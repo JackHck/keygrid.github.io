@@ -163,9 +163,11 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+       <p>
        <img src="./static/images/teaser.png"
                  class="teaser"
                  alt="teaser."/>
+       </p> 
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">Examples of the keypoints detected by Key-Grid.
       </h2>
@@ -186,11 +188,11 @@
           However, when faced with deformable objects, the keypoints they identify do not preserve semantic consistency well. 
           </p>
           <p> 
-          In this paper, we introduce an innovative unsupervised keypoint detector Key-Grid for both the rigid-body and deformable objects, which is an autoencoder framework. 
+          In this paper, we introduce an innovative unsupervised keypoint detector <b>Key-Grid</b> for both the rigid-body and deformable objects, which is an autoencoder framework. 
           Unlike previous work, we leverage the identified keypoint information to form a 3D grid feature heatmap called grid heatmap, which is used in the process of point cloud reconstruction. 
           </p>
           <p>
-          Grid heatmap is a novel concept that represents the latent variables for grid points sampled uniformly in the 3D cubic space, where these variables are the shortest distance between the grid points and the “skeleton” connected by keypoint pairs. 
+          <b>Grid heatmap</b> is a novel concept that represents the latent variables for grid points sampled uniformly in the 3D cubic space, where these variables are the shortest distance between the grid points and the “skeleton” connected by keypoint pairs. 
           Meanwhile, we incorporate the information from each layer of the encoder into the reconstruction process of the point cloud. We conduct an extensive evaluation of Key-Grid on a list of benchmark datasets. 
           Key-Grid achieves the state-of-the-art performance on the semantic consistency and position accuracy of keypoints. 
           Moreover, we demonstrate the robustness of Key-Grid to noise and downsampling. 
@@ -217,10 +219,12 @@
               In the encoder section, given a point cloud, we detect the keypoints by utilizing the PointNet++. 
               Then, we utilize the detected keypoints to form the Key-Grid. 
               In the decoder section, we use each layer of the PointNet++ and the Key-Grid to reconstruct the input point cloud. 
+             <p> 
+              <img src="./static/images/allmethod.png" alt="Pipline of Key-Grid" /> 
+              </p> 
               <p>
-                  Please refer to our paper for more details.
+                  <b> If you want to understand more details, please refer to  <a href="https://jackhck.github.io"> our paper</a>.</b>
               </p>
-              <img src="./static/images/allmethod.png" alt="Pipline of Key-Grid" />
           </div>
   
         </div>
@@ -251,7 +255,12 @@
     </div>
     <!--/ Paper video. -->
   </div>
-  <div class="columns is-centered has-text-centered">
+   <div style="text-align: center; margin-top: 10px; margin-bottom:20px">
+        <button id="showMoreBtn" style="width: 130px; height: 35px; border-radius: 20px; background-color: #1e1c1c; color: #fff; font-size: 17px; border: none; cursor: pointer;">
+          More Tasks
+        </button>
+  </div>
+  <div class="content-video hidden-row">
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
           <p>
@@ -271,7 +280,7 @@
     <!--/ Paper video. -->
   </div>
   
-<div class="columns is-centered has-text-centered">
+<div class="content-video hidden-row">
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
           <p>
@@ -290,7 +299,7 @@
     </div>
     <!--/ Paper video. -->
   </div>
-  <div class="columns is-centered has-text-centered">
+  <div class="content-video hidden-row">
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
           <p>
@@ -309,7 +318,7 @@
     </div>
     <!--/ Paper video. -->
   </div>
-  <div class="columns is-centered has-text-centered">
+  <div class="content-video hidden-row">
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
           <p>
@@ -328,7 +337,7 @@
     </div>
     <!--/ Paper video. -->
   </div>
-   <div class="columns is-centered has-text-centered">
+   <div class="content-video hidden-row">
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
           <p>
@@ -364,6 +373,48 @@
   </div>
 </section>
 
+<script>
+  // 获取按钮和所有隐藏视频容器的引用
+  const showMoreBtn = document.getElementById('showMoreBtn');
+  const hiddenRowContainers = document.querySelectorAll('.hidden-row');
+
+  // 设置初始状态为隐藏
+  hiddenRowContainers.forEach(function(container) {
+    container.style.display = 'none';
+  });
+
+  // 点击按钮时切换显示/隐藏所有隐藏视频容器
+  showMoreBtn.addEventListener('click', function() {
+    hiddenRowContainers.forEach(function(container) {
+      if (container.style.display === 'none') {
+        container.style.display = 'block';
+        showMoreBtn.textContent = 'Hide';
+      } else {
+        container.style.display = 'none';
+        showMoreBtn.textContent = 'More Tasks';
+      }
+    });
+  });
+
+  const showResultBtn = document.getElementById('showDetails');
+  const hiddenResContainers = document.querySelectorAll('.hidden-result');
+
+  hiddenResContainers.forEach(function(container) {
+    container.style.display = 'none';
+  });
+
+  showResultBtn.addEventListener('click', function() {
+    hiddenResContainers.forEach(function(container) {
+      if (container.style.display === 'none') {
+        container.style.display = 'block';
+        showResultBtn.textContent = 'Hide';
+      } else {
+        container.style.display = 'none';
+        showResultBtn.textContent = 'Detailed Results';
+      }
+    });
+  });
+</script>
 
 <footer class="footer">
   <div class="container">
@@ -399,3 +450,4 @@
 
 </body>
 </html>
+
